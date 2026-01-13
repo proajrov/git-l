@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stop AI - Aprende Programación Completa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0b50da",
+                        "accent": "#ff6b00",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white min-h-screen">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800 p-4 justify-between h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="Code">code</span>
+<span class="text-[#111318] dark:text-white text-lg font-black leading-tight tracking-[-0.015em]">Stop AI</span>
+</div>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-lg text-sm font-bold">
+            Login
+        </button>
+</header>
+<!-- Hero Section -->
+<section class="relative @container">
+<div class="p-0 @[480px]:p-4">
+<div class="relative flex min-h-[520px] flex-col gap-6 bg-primary dark:bg-primary/20 @[480px]:rounded-xl items-center justify-center p-6 text-center overflow-hidden" data-alt="Abstract blue background with coding syntax patterns" style='background-image: linear-gradient(rgba(11, 80, 218, 0.9), rgba(11, 80, 218, 0.95)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCvvQDrDBLRbLy_UhjUU-1IJzWvcPj5pdQUZMEye1Qe1kt0fBh0Xhn3dBrXmlgqjlzWXkd0MQz5Kjqku9HXb_dxYn47g9HtCKOnQOEB4VuTYeQ0k43Gr4KLPvizqO_-Bzas7iVKng4LiOqiULU29kQqjOF53LM6S5RGQt0Li9cvnzgFY-V3swvIZN017IZH03c3fZpkz_QgGXEsyt4-6ROMAoe-n8F1T4ctSTvIeOgsdYedbzuMR2A_t8PU_RZ0wt91YhrL6vOMLA");'>
+<div class="flex flex-col gap-4 max-w-[480px]">
+<span class="text-accent font-bold uppercase tracking-widest text-xs">Curso de Programación 2024</span>
+<h1 class="text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-5xl">
+                        Aprende Programación Completa – Stop AI
+                    </h1>
+<p class="text-white/80 text-base font-normal leading-relaxed">
+                        No te limites a copiar y pegar. Domina la lógica humana que la IA no puede replicar. Aprende Python, JS y SQL con pensamiento crítico.
+                    </p>
+</div>
+<div class="flex flex-col w-full max-w-[320px] gap-3">
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-14 bg-accent hover:bg-[#e65a00] text-white text-base font-bold transition-all shadow-lg">
+                        ¡Empieza Ya!
+                    </button>
+<p class="text-white/60 text-xs">Acceso inmediato • No requiere experiencia</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Proposition / Section Header -->
+<section class="py-10">
+<div class="px-6 flex flex-col items-center text-center gap-2">
+<h2 class="text-[#111318] dark:text-white text-2xl font-black tracking-tight">Lo que aprenderás</h2>
+<div class="w-12 h-1 bg-accent rounded-full mb-4"></div>
+<p class="text-[#606e8a] dark:text-gray-400 text-sm max-w-sm">
+                Un currículo diseñado para formar desarrolladores con criterio, no solo digitadores de código.
+            </p>
+</div>
+<!-- Text Grid (Benefits) -->
+<div class="grid grid-cols-1 @[480px]:grid-cols-2 gap-4 p-6">
+<div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="Terminal">terminal</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-[#111318] dark:text-white text-lg font-bold">Python Core</h3>
+<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed">Domina el lenguaje más versátil del mundo para ciencia de datos y backend.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="Javascript">javascript</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-[#111318] dark:text-white text-lg font-bold">Modern JavaScript</h3>
+<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed">Crea interfaces dinámicas y maneja el DOM como un profesional del Frontend.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="Database">database</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-[#111318] dark:text-white text-lg font-bold">SQL Mastery</h3>
+<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed">Aprende a estructurar, consultar y optimizar bases de datos relacionales.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-accent" data-icon="Psychology">psychology</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-[#111318] dark:text-white text-lg font-bold">Lógica Humana</h3>
+<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed">Desarrolla el pensamiento crítico necesario para resolver problemas complejos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="bg-gray-50 dark:bg-gray-900/50 py-12">
+<div class="px-6 pb-6">
+<h2 class="text-[#111318] dark:text-white text-2xl font-black tracking-tight">Lo que dicen nuestros alumnos</h2>
+</div>
+<!-- Horizontal Scroll Container -->
+<div class="flex overflow-x-auto gap-4 px-6 pb-4 scrollbar-hide no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
+<div class="flex-none w-72 bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<img alt="Student headshot" class="w-10 h-10 rounded-full" data-alt="Close up of a smiling student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Kr6ue0Hc3LWuc9b58vKNd4KNBmbxdzSRWyeg6eTEOqPMNZzEiIghN9Bt0zwjm7bk8KgxCglWwXZwylw4x14wOchQgPANKLV0c1NsaJBevdcybXeWblit2aHoDdCi6mnBqkkYGWk0LqgTS_z_uocmxzavXsfN30jp_6L12YXjCmqfQMx_1PxDgYE0KqrQPrIHE-HuYJyZUhsCGvgnJJRy6gEfyTH3UhcEelKLrsNjZX3lpJZnXip0isgBLrMuomc53zFvoKDNLVo"/>
+<div>
+<p class="font-bold text-sm">Carlos Ruiz</p>
+<p class="text-xs text-gray-500">Junior Dev @ TechCo</p>
+</div>
+</div>
+<p class="text-sm text-[#606e8a] dark:text-gray-400 italic">"Entender la lógica detrás del código cambió mi carrera. Ahora no dependo de copiar lo que me dice la IA."</p>
+</div>
+<div class="flex-none w-72 bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<img alt="Student headshot" class="w-10 h-10 rounded-full" data-alt="Portrait of a female programming student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr471ODK2v20m0urnsu0yZYqAEyzxSzJs0_ilDkR-kHaVCFbZ1Im6Cv5EdujZx4zCaYPbOsq1KzxBgFbhFiuNQFvTzzFYXtEIM1YCBxs6RMTNINBkQsbmgWTHsSZmDspAY7WImBsWkr2fE03oZLoXv7nWVTeClj_6DEbLpM8qC8zVcczHtuQmqQ3mWvq1723z4LJcrTwwtvJPz-cxKfxG2KizPv5ugGaipesJVR_IvKeKiA8jB-rThO1sBo7tO9nAgflN0fvv2Ycs"/>
+<div>
+<p class="font-bold text-sm">Elena Gómez</p>
+<p class="text-xs text-gray-500">Fullstack Student</p>
+</div>
+</div>
+<p class="text-sm text-[#606e8a] dark:text-gray-400 italic">"El enfoque en SQL fue increíble. Finalmente entiendo cómo se conectan los datos en una app real."</p>
+</div>
+</div>
+</section>
+<!-- Instructor Section -->
+<section class="p-6">
+<div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-6 flex flex-col items-center gap-6">
+<div class="relative">
+<img alt="Instructor" class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800" data-alt="Professional portrait of a male tech instructor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvsHUEuKP1y05e20RBdPGJ97Gu34s0PNHkLaADAKEzQTRrIXXfaegws5hj4mFiKFPMADy2XdxhZJ7dn1197ArNy75T7q_TLZFFVQgg__t70jWndYj73__b461eXFIanHyVlGtx9JgbEhV30Ma_94YUe1kTqI5FQoaQFsv6iZR1hAT651M5CNMKU2aTgNHe2-ZN6wM753J6NgHbVqEk6N1lVffGXRL9y3b4o7-YVShgh9mOHELvIoWe38WcgvqhVkFo2_o_3PSSGvY"/>
+<div class="absolute bottom-0 right-0 bg-accent p-1.5 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-white text-xs">verified</span>
+</div>
+</div>
+<div class="text-center">
+<h3 class="text-[#111318] dark:text-white text-xl font-bold">Marcus Thorne</h3>
+<p class="text-primary font-medium text-sm mb-4">Lead Instructor &amp; Software Engineer</p>
+<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+                    Con más de 12 años en la industria, Marcus ha capacitado a miles de ingenieros en el arte del pensamiento algorítmico puro.
+                </p>
+</div>
+<ul class="w-full space-y-3 text-sm border-t border-gray-200 dark:border-gray-700 pt-6">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+<span>Ex-Senior Developer en Silicon Valley</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+<span>Especialista en Sistemas Distribuidos</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
+<span>Mentor de +5000 alumnos</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Footer CTA -->
+<footer class="p-6 pb-12 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800">
+<div class="flex flex-col gap-6 items-center text-center">
+<div class="flex flex-col gap-2">
+<h2 class="text-xl font-black text-[#111318] dark:text-white">¿Listo para el siguiente nivel?</h2>
+<p class="text-sm text-[#606e8a] dark:text-gray-400">Únete hoy y obtén acceso a nuestra comunidad privada de por vida.</p>
+</div>
+<button class="w-full bg-accent hover:bg-[#e65a00] text-white h-14 rounded-xl font-bold text-lg shadow-xl shadow-accent/20">
+                Inscríbete ahora
+            </button>
+<div class="flex gap-4 opacity-50">
+<span class="material-symbols-outlined" data-icon="Language">language</span>
+<span class="material-symbols-outlined" data-icon="Mail">mail</span>
+<span class="material-symbols-outlined" data-icon="Group">group</span>
+</div>
+<p class="text-[10px] text-gray-400">© 2024 Stop AI Programming School. Todos los derechos reservados.</p>
+</div>
+</footer>
+<!-- Safe area for mobile -->
+<div class="h-6 bg-white dark:bg-background-dark"></div>
+</body></html>
