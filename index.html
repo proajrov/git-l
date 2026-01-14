@@ -1,213 +1,647 @@
-<!DOCTYPE html>
+<!doctype html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Aprende programación desde cero con pensamiento crítico. Cursos de Python, JavaScript y SQL para dominar la lógica que la IA no puede replicar.">
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Stop AI - Aprende Programación Completa">
+    <meta property="og:description" content="Domina Python, JavaScript y SQL con pensamiento crítico. No copies código, entiéndelo.">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/.../tu-imagen-og.jpg">
+    <meta property="og:url" content="https://tudominio.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Stop AI - Domina la Lógica de Programación | Python, JS, SQL</title>
 
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Stop AI - Aprende Programación Completa</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0b50da",
-                        "accent": "#ff6b00",
-                        "background-light": "#f5f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+    <!-- Material Icons - Solo cargamos lo necesario -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- Tailwind CSS con plugins optimizados -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#f0f7ff",
+                100: "#e0f0fe",
+                500: "#0b50da", // Tu azul principal
+                600: "#0945c0",
+                700: "#073a9f",
+              },
+              accent: {
+                500: "#ff6b00", // Tu naranja
+                600: "#e65a00",
+              },
+              gray: {
+                50: "#f9fafb",
+                900: "#111318", // Tu negro personalizado
+              },
+              background: {
+                light: "#f5f6f8",
+                dark: "#101622",
+              },
             },
-        }
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              "glow": "0 0 15px rgba(255, 107, 0, 0.3)",
+              "card": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-out",
+              "slide-up": "slideUp 0.5s ease-out",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
     </script>
-<style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
+
+    <style>
+      /* Estilos críticos inline para evitar FOUC */
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: max(884px, 100dvh);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Scrollbar personalizado para navegadores que lo soportan */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #6b7280;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4b5563;
+      }
+
+      /* Clase para ocultar scrollbar pero mantener funcionalidad */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Animaciones para elementos clave */
+      @media (prefers-reduced-motion: no-preference) {
+        .animate-fade-in {
+          animation: fadeIn 0.6s ease-out both;
         }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        .animate-slide-up {
+          animation: slideUp 0.6s ease-out both;
         }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+      }
+
+      /* Estilos para el modo oscuro */
+      .dark .hero-pattern {
+        background-image:
+          linear-gradient(rgba(11, 80, 218, 0.85), rgba(11, 80, 218, 0.9)),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cpattern id='grid' width='10' height='10' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 10 0 L 0 0 0 10' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E");
+      }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white min-h-screen">
-<!-- Top Navigation -->
-<header class="sticky top-0 z-50 flex items-center bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800 p-4 justify-between h-16">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-2xl" data-icon="Code">code</span>
-<span class="text-[#111318] dark:text-white text-lg font-black leading-tight tracking-[-0.015em]">Stop AI</span>
-</div>
-<button class="bg-primary/10 text-primary px-4 py-2 rounded-lg text-sm font-bold">
-            Login
-        </button>
-</header>
-<!-- Hero Section -->
-<section class="relative @container">
-<div class="p-0 @[480px]:p-4">
-<div class="relative flex min-h-[520px] flex-col gap-6 bg-primary dark:bg-primary/20 @[480px]:rounded-xl items-center justify-center p-6 text-center overflow-hidden" data-alt="Abstract blue background with coding syntax patterns" style='background-image: linear-gradient(rgba(11, 80, 218, 0.9), rgba(11, 80, 218, 0.95)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCvvQDrDBLRbLy_UhjUU-1IJzWvcPj5pdQUZMEye1Qe1kt0fBh0Xhn3dBrXmlgqjlzWXkd0MQz5Kjqku9HXb_dxYn47g9HtCKOnQOEB4VuTYeQ0k43Gr4KLPvizqO_-Bzas7iVKng4LiOqiULU29kQqjOF53LM6S5RGQt0Li9cvnzgFY-V3swvIZN017IZH03c3fZpkz_QgGXEsyt4-6ROMAoe-n8F1T4ctSTvIeOgsdYedbzuMR2A_t8PU_RZ0wt91YhrL6vOMLA");'>
-<div class="flex flex-col gap-4 max-w-[480px]">
-<span class="text-accent font-bold uppercase tracking-widest text-xs">Curso de Programación 2024</span>
-<h1 class="text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-5xl">
-                        Aprende Programación Completa – Stop AI
-                    </h1>
-<p class="text-white/80 text-base font-normal leading-relaxed">
-                        No te limites a copiar y pegar. Domina la lógica humana que la IA no puede replicar. Aprende Python, JS y SQL con pensamiento crítico.
-                    </p>
-</div>
-<div class="flex flex-col w-full max-w-[320px] gap-3">
-<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-14 bg-accent hover:bg-[#e65a00] text-white text-base font-bold transition-all shadow-lg">
-                        ¡Empieza Ya!
-                    </button>
-<p class="text-white/60 text-xs">Acceso inmediato • No requiere experiencia</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Value Proposition / Section Header -->
-<section class="py-10">
-<div class="px-6 flex flex-col items-center text-center gap-2">
-<h2 class="text-[#111318] dark:text-white text-2xl font-black tracking-tight">Lo que aprenderás</h2>
-<div class="w-12 h-1 bg-accent rounded-full mb-4"></div>
-<p class="text-[#606e8a] dark:text-gray-400 text-sm max-w-sm">
-                Un currículo diseñado para formar desarrolladores con criterio, no solo digitadores de código.
+
+  <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-white min-h-screen">
+    <!-- Top Navigation - Mejorado con accesibilidad y estado activo -->
+    <header class="sticky top-0 z-50 flex items-center bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 p-4 h-16 transition-colors duration-300">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary-500 text-2xl" aria-hidden="true">code</span>
+        <span class="text-gray-900 dark:text-white text-lg font-black leading-tight tracking-[-0.015em]">Stop<span class="text-primary-500">AI</span></span>
+      </div>
+
+      <!-- Botón mejorado con focus states y aria-label -->
+      <button class="group relative overflow-hidden bg-primary-500/10 text-primary-500 hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition-all hover:bg-primary-500 shadow-card hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-background-dark" aria-label="Iniciar sesión">
+        <span class="relative z-10">Login</span>
+        <span class="absolute inset-0 bg-primary-500/20 group-hover:bg-primary-500 transition-all duration-300"></span>
+      </button>
+
+      <!-- Toggle de modo oscuro - Opcional si quieres implementarlo -->
+      <button id="theme-toggle" class="ml-4 p-2 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" aria-label="Toggle dark mode">
+        <span class="material-symbols-outlined text-xl" aria-hidden="true">dark_mode</span>
+      </button>
+    </header>
+
+    <!-- Hero Section - Mejorado con gradientes, patrones y animaciones -->
+    <section class="relative @container" aria-labelledby="hero-heading">
+      <div class="p-0 @[480px]:p-4">
+        <div class="relative flex min-h-[520px] flex-col gap-6 bg-gradient-to-br from-primary-500 to-primary-600 dark:from-primary-700 dark:to-primary-600 @[480px]:rounded-xl items-center justify-center p-6 text-center overflow-hidden hero-pattern">
+          <!-- Efecto de fondo con SVG para mejor rendimiento -->
+          <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"%3E%3Cdefs%3E%3Cpattern id=\"code-pattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\"%3E%3Cpath d=\"M0 0L20 0 20 1L0 1ZM0 3L15 3 15 4L0 4ZM0 7L10 7 10 8L0 8Z\" fill=\"rgba(255,255,255,0.05)\"/%3E%3Cpattern id=\"grid\" width=\"10\" height=\"10\" patternUnits=\"userSpaceOnUse\"%3E%3Cpath d=\"M 10 0 L 0 0 0 10\" fill=\"none\" stroke=\"rgba(255,255,255,0.02)\" stroke-width=\"0.5\"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=\"100\" height=\"100\" fill=\"url(%23grid)\"/%3E%3Crect width=\"100\" height=\"100\" fill=\"url(%23code-pattern)\"/%3E%3C/svg%3E')] opacity-30"></div>
+
+          <div class="relative z-10 flex flex-col gap-4 max-w-[480px] animate-fade-in">
+            <span class="inline-block px-3 py-1 text-accent-500 font-bold uppercase tracking-widest text-xs bg-accent-500/10 rounded-full">Curso Premium 2026</span>
+
+            <h1 id="hero-heading" class="text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-5xl animate-slide-up delay-100">
+              Domina la <span class="text-accent-500">Lógica de Programación</span> que la IA no puede replicar
+            </h1>
+
+            <p class="text-white/90 text-base font-normal leading-relaxed max-w-[400px] mx-auto animate-slide-up delay-200">
+              Deja de depender del <em>copy-paste</em>. Aprende a <strong>pensar como ingeniero</strong> con Python, JavaScript y SQL, y construye soluciones que ni la IA puede generar.
             </p>
-</div>
-<!-- Text Grid (Benefits) -->
-<div class="grid grid-cols-1 @[480px]:grid-cols-2 gap-4 p-6">
-<div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
-<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary" data-icon="Terminal">terminal</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-[#111318] dark:text-white text-lg font-bold">Python Core</h3>
-<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed">Domina el lenguaje más versátil del mundo para ciencia de datos y backend.</p>
-</div>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
-<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary" data-icon="Javascript">javascript</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-[#111318] dark:text-white text-lg font-bold">Modern JavaScript</h3>
-<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed">Crea interfaces dinámicas y maneja el DOM como un profesional del Frontend.</p>
-</div>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
-<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary" data-icon="Database">database</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-[#111318] dark:text-white text-lg font-bold">SQL Mastery</h3>
-<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed">Aprende a estructurar, consultar y optimizar bases de datos relacionales.</p>
-</div>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
-<div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-accent" data-icon="Psychology">psychology</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-[#111318] dark:text-white text-lg font-bold">Lógica Humana</h3>
-<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed">Desarrolla el pensamiento crítico necesario para resolver problemas complejos.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Testimonials Section -->
-<section class="bg-gray-50 dark:bg-gray-900/50 py-12">
-<div class="px-6 pb-6">
-<h2 class="text-[#111318] dark:text-white text-2xl font-black tracking-tight">Lo que dicen nuestros alumnos</h2>
-</div>
-<!-- Horizontal Scroll Container -->
-<div class="flex overflow-x-auto gap-4 px-6 pb-4 scrollbar-hide no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
-<div class="flex-none w-72 bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col gap-4">
-<div class="flex items-center gap-3">
-<img alt="Student headshot" class="w-10 h-10 rounded-full" data-alt="Close up of a smiling student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Kr6ue0Hc3LWuc9b58vKNd4KNBmbxdzSRWyeg6eTEOqPMNZzEiIghN9Bt0zwjm7bk8KgxCglWwXZwylw4x14wOchQgPANKLV0c1NsaJBevdcybXeWblit2aHoDdCi6mnBqkkYGWk0LqgTS_z_uocmxzavXsfN30jp_6L12YXjCmqfQMx_1PxDgYE0KqrQPrIHE-HuYJyZUhsCGvgnJJRy6gEfyTH3UhcEelKLrsNjZX3lpJZnXip0isgBLrMuomc53zFvoKDNLVo"/>
-<div>
-<p class="font-bold text-sm">Carlos Ruiz</p>
-<p class="text-xs text-gray-500">Junior Dev @ TechCo</p>
-</div>
-</div>
-<p class="text-sm text-[#606e8a] dark:text-gray-400 italic">"Entender la lógica detrás del código cambió mi carrera. Ahora no dependo de copiar lo que me dice la IA."</p>
-</div>
-<div class="flex-none w-72 bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col gap-4">
-<div class="flex items-center gap-3">
-<img alt="Student headshot" class="w-10 h-10 rounded-full" data-alt="Portrait of a female programming student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr471ODK2v20m0urnsu0yZYqAEyzxSzJs0_ilDkR-kHaVCFbZ1Im6Cv5EdujZx4zCaYPbOsq1KzxBgFbhFiuNQFvTzzFYXtEIM1YCBxs6RMTNINBkQsbmgWTHsSZmDspAY7WImBsWkr2fE03oZLoXv7nWVTeClj_6DEbLpM8qC8zVcczHtuQmqQ3mWvq1723z4LJcrTwwtvJPz-cxKfxG2KizPv5ugGaipesJVR_IvKeKiA8jB-rThO1sBo7tO9nAgflN0fvv2Ycs"/>
-<div>
-<p class="font-bold text-sm">Elena Gómez</p>
-<p class="text-xs text-gray-500">Fullstack Student</p>
-</div>
-</div>
-<p class="text-sm text-[#606e8a] dark:text-gray-400 italic">"El enfoque en SQL fue increíble. Finalmente entiendo cómo se conectan los datos en una app real."</p>
-</div>
-</div>
-</section>
-<!-- Instructor Section -->
-<section class="p-6">
-<div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-6 flex flex-col items-center gap-6">
-<div class="relative">
-<img alt="Instructor" class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800" data-alt="Professional portrait of a male tech instructor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvsHUEuKP1y05e20RBdPGJ97Gu34s0PNHkLaADAKEzQTRrIXXfaegws5hj4mFiKFPMADy2XdxhZJ7dn1197ArNy75T7q_TLZFFVQgg__t70jWndYj73__b461eXFIanHyVlGtx9JgbEhV30Ma_94YUe1kTqI5FQoaQFsv6iZR1hAT651M5CNMKU2aTgNHe2-ZN6wM753J6NgHbVqEk6N1lVffGXRL9y3b4o7-YVShgh9mOHELvIoWe38WcgvqhVkFo2_o_3PSSGvY"/>
-<div class="absolute bottom-0 right-0 bg-accent p-1.5 rounded-full border-2 border-white">
-<span class="material-symbols-outlined text-white text-xs">verified</span>
-</div>
-</div>
-<div class="text-center">
-<h3 class="text-[#111318] dark:text-white text-xl font-bold">Marcus Thorne</h3>
-<p class="text-primary font-medium text-sm mb-4">Lead Instructor &amp; Software Engineer</p>
-<p class="text-[#606e8a] dark:text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
-                    Con más de 12 años en la industria, Marcus ha capacitado a miles de ingenieros en el arte del pensamiento algorítmico puro.
-                </p>
-</div>
-<ul class="w-full space-y-3 text-sm border-t border-gray-200 dark:border-gray-700 pt-6">
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
-<span>Ex-Senior Developer en Silicon Valley</span>
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
-<span>Especialista en Sistemas Distribuidos</span>
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-accent text-lg">check_circle</span>
-<span>Mentor de +5000 alumnos</span>
-</li>
-</ul>
-</div>
-</section>
-<!-- Footer CTA -->
-<footer class="p-6 pb-12 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800">
-<div class="flex flex-col gap-6 items-center text-center">
-<div class="flex flex-col gap-2">
-<h2 class="text-xl font-black text-[#111318] dark:text-white">¿Listo para el siguiente nivel?</h2>
-<p class="text-sm text-[#606e8a] dark:text-gray-400">Únete hoy y obtén acceso a nuestra comunidad privada de por vida.</p>
-</div>
-<button class="w-full bg-accent hover:bg-[#e65a00] text-white h-14 rounded-xl font-bold text-lg shadow-xl shadow-accent/20">
-                Inscríbete ahora
+          </div>
+
+          <div class="relative z-10 flex flex-col w-full max-w-[320px] gap-3 animate-slide-up delay-300">
+            <button class="group relative flex w-full cursor-pointer items-center justify-center rounded-lg h-14 bg-accent-500 hover:bg-accent-600 text-white text-base font-bold transition-all shadow-lg hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 overflow-hidden">
+              <span class="relative z-10">¡Quiero empezar ahora!</span>
+              <span class="absolute inset-0 bg-accent-600/20 group-hover:bg-accent-500/30 transition-all duration-300"></span>
+              <span class="absolute -bottom-0 left-0 w-full h-0.5 bg-accent-500/30 group-hover:h-full group-hover:opacity-0 transition-all duration-300"></span>
             </button>
-<div class="flex gap-4 opacity-50">
-<span class="material-symbols-outlined" data-icon="Language">language</span>
-<span class="material-symbols-outlined" data-icon="Mail">mail</span>
-<span class="material-symbols-outlined" data-icon="Group">group</span>
-</div>
-<p class="text-[10px] text-gray-400">© 2024 Stop AI Programming School. Todos los derechos reservados.</p>
-</div>
-</footer>
-<!-- Safe area for mobile -->
-<div class="h-6 bg-white dark:bg-background-dark"></div>
-</body></html>
+
+            <p class="text-white/80 text-xs flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-xs" aria-hidden="true">check_circle</span>
+              Acceso inmediato • Sin experiencia requerida • Comunidad privada
+            </p>
+          </div>
+
+          <!-- Elemento decorativo para profundizar visualmente -->
+          <div class="absolute -bottom-6 right-6 w-32 h-32 rounded-full bg-accent-500/10 blur-2xl opacity-70 animate-pulse slow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Proposition - Mejorado con grid más dinámico y tarjetas mejoradas -->
+    <section class="py-10" aria-labelledby="features-heading">
+      <div class="px-6 flex flex-col items-center text-center gap-2 mb-8 animate-fade-in">
+        <h2 id="features-heading" class="text-gray-900 dark:text-white text-2xl font-black tracking-tight">
+          Lo que <span class="text-primary-500">realmente</span> aprenderás
+        </h2>
+        <div class="w-12 h-1 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full mb-4"></div>
+        <p class="text-gray-600 dark:text-gray-400 text-sm max-w-md">
+          Un currículo diseñado por ingenieros senior para formar <strong>desarrolladores con criterio</strong>, no solo digitadores de código.
+        </p>
+      </div>
+
+      <!-- Grid mejorado con hover effects y mejor jerarquía visual -->
+      <div class="grid grid-cols-1 @[480px]:grid-cols-2 gap-4 p-6 max-w-4xl mx-auto">
+        <!-- Tarjeta mejorada con efectos y mejor tipografía -->
+        <div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-card transition-all hover:shadow-glow hover:-translate-y-1 hover:scale-[1.01]">
+          <div class="w-12 h-12 rounded-lg bg-primary-500/10 flex items-center justify-center transition-colors group-hover:bg-primary-500/20">
+            <span class="material-symbols-outlined text-primary-500 text-2xl group-hover:text-primary-600" aria-hidden="true">terminal</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-gray-900 dark:text-white text-lg font-bold">Python Core</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Domina el lenguaje más demandado para <strong>ciencia de datos</strong>, automatización y desarrollo backend con proyectos reales.
+            </p>
+            <div class="mt-2 text-primary-500 text-xs font-medium flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs" aria-hidden="true">auto_awesome</span>
+              Incluye 3 proyectos de portfolio
+            </div>
+          </div>
+        </div>
+
+        <!-- JavaScript Card -->
+        <div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-card transition-all hover:shadow-glow hover:-translate-y-1 hover:scale-[1.01]">
+          <div class="w-12 h-12 rounded-lg bg-primary-500/10 flex items-center justify-center transition-colors group-hover:bg-primary-500/20">
+            <span class="material-symbols-outlined text-primary-500 text-2xl group-hover:text-primary-600" aria-hidden="true">javascript</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-gray-900 dark:text-white text-lg font-bold">Modern JavaScript</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Desde los fundamentos hasta <strong>React</strong> y <strong>Node.js</strong>. Aprende a crear interfaces dinámicas y APIs robustas.
+            </p>
+            <div class="mt-2 text-primary-500 text-xs font-medium flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs" aria-hidden="true">electric_bolt</span>
+              Incluye curso de TypeScript
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL Card -->
+        <div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-card transition-all hover:shadow-glow hover:-translate-y-1 hover:scale-[1.01]">
+          <div class="w-12 h-12 rounded-lg bg-primary-500/10 flex items-center justify-center transition-colors group-hover:bg-primary-500/20">
+            <span class="material-symbols-outlined text-primary-500 text-2xl group-hover:text-primary-600" aria-hidden="true">database</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-gray-900 dark:text-white text-lg font-bold">SQL Mastery</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Desde consultas básicas hasta <strong>optimización de queries</strong> y diseño de bases de datos relacionales.
+            </p>
+            <div class="mt-2 text-primary-500 text-xs font-medium flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs" aria-hidden="true">storage</span>
+              Incluye PostgreSQL y MongoDB
+            </div>
+          </div>
+        </div>
+
+        <!-- Lógica Humana Card -->
+        <div class="flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-card transition-all hover:shadow-glow hover:-translate-y-1 hover:scale-[1.01]">
+          <div class="w-12 h-12 rounded-lg bg-accent-500/10 flex items-center justify-center transition-colors group-hover:bg-accent-500/20">
+            <span class="material-symbols-outlined text-accent-500 text-2xl group-hover:text-accent-600" aria-hidden="true">psychology</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-gray-900 dark:text-white text-lg font-bold">Pensamiento Crítico</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Desarrolla la capacidad de <strong>resolver problemas complejos</strong> con algoritmos eficientes y código limpio.
+            </p>
+            <div class="mt-2 text-accent-500 text-xs font-medium flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs" aria-hidden="true">workspaces</span>
+              Sesiones de mentoring incluidas
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section - Mejorado con slider real y efectos -->
+    <section class="bg-gray-50 dark:bg-gray-900/50 py-12" aria-labelledby="testimonials-heading">
+      <div class="px-6 pb-6 animate-fade-in">
+        <h2 id="testimonials-heading" class="text-gray-900 dark:text-white text-2xl font-black tracking-tight text-center mb-2">
+          Historias de <span class="text-primary-500">éxito real</span>
+        </h2>
+        <div class="w-12 h-1 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full mx-auto mb-8"></div>
+      </div>
+
+      <!-- Slider mejorado con botones de navegación -->
+      <div class="relative px-6">
+        <div class="flex overflow-x-auto gap-4 pb-4 scrollbar-hide" id="testimonials-slider">
+          <!-- Testimonio 1 -->
+          <div class="flex-none w-72 bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-card transition-all hover:shadow-glow flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <img alt="Carlos Ruiz, ex-alumno" class="w-12 h-12 rounded-full object-cover border-2 border-primary-500/20" data-alt="Foto de perfil de Carlos Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Kr6ue0Hc3LWuc9b58vKNd4KNBmbxdzSRWyeg6eTEOqPMNZzEiIghN9Bt0zwjm7bk8KgxCglWwXZwylw4x14wOchQgPANKLV0c1NsaJBevdcybXeWblit2aHoDdCi6mnBqkkYGWk0LqgTS_z_uocmxzavXsfN30jp_6L12YXjCmqfQMx_1PxDgYE0KqrQPrIHE-HuYJyZUhsCGvgnJJRy6gEfyTH3UhcEelKLrsNjZX3lpJZnXip0isgBLrMuomc53zFvoKDNLVo" loading="lazy">
+              <div>
+                <p class="font-bold text-sm">Carlos Ruiz</p>
+                <div class="flex items-center gap-1 text-xs text-gray-500">
+                  <span class="material-symbols-outlined text-[10px]" aria-hidden="true">work</span>
+                  <span>Junior Dev @ TechCo</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-sm italic leading-relaxed">
+              "Entender la lógica detrás del código cambió mi carrera. Ahora no solo programo, <strong>construyo soluciones</strong> que ni la IA puede proponer."
+            </p>
+            <div class="flex gap-1">
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+            </div>
+          </div>
+
+          <!-- Testimonio 2 -->
+          <div class="flex-none w-72 bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-card transition-all hover:shadow-glow flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <img alt="Elena Gómez, ex-alumna" class="w-12 h-12 rounded-full object-cover border-2 border-primary-500/20" data-alt="Foto de perfil de Elena Gómez" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr471ODK2v20m0urnsu0yZYqAEyzxSzJs0_ilDkR-kHaVCFbZ1Im6Cv5EdujZx4zCaYPbOsq1KzxBgFbhFiuNQFvTzzFYXtEIM1YCBxs6RMTNINBkQsbmgWTHsSZmDspAY7WImBsWkr2fE03oZLoXv7nWVTeClj_6DEbLpM8qC8zVcczHtuQmqQ3mWvq1723z4LJcrTwwtvJPz-cxKfxG2KizPv5ugGaipesJVR_IvKeKiA8jB-rThO1sBo7tO9nAgflN0fvv2Ycs" loading="lazy">
+              <div>
+                <p class="font-bold text-sm">Elena Gómez</p>
+                <div class="flex items-center gap-1 text-xs text-gray-500">
+                  <span class="material-symbols-outlined text-[10px]" aria-hidden="true">school</span>
+                  <span>Fullstack Student</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-sm italic leading-relaxed">
+              "El enfoque en SQL y bases de datos fue <strong>revelador</strong>. Ahora entiendo cómo se conectan los datos en aplicaciones reales, no solo en ejemplos simples."
+            </p>
+            <div class="flex gap-1">
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star_half</span>
+            </div>
+          </div>
+
+          <!-- Testimonio 3 - Añadido para más variedad -->
+          <div class="flex-none w-72 bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-card transition-all hover:shadow-glow flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <img alt="Javier Martínez, ex-alumno" class="w-12 h-12 rounded-full object-cover border-2 border-primary-500/20" data-alt="Foto de perfil de Javier Martínez" src="https://randomuser.me/api/portraits/men/32.jpg" loading="lazy">
+              <div>
+                <p class="font-bold text-sm">Javier Martínez</p>
+                <div class="flex items-center gap-1 text-xs text-gray-500">
+                  <span class="material-symbols-outlined text-[10px]" aria-hidden="true">work</span>
+                  <span>Freelance Developer</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-sm italic leading-relaxed">
+              "El curso de pensamiento algorítmico me dio las herramientas para <strong>resolver problemas</strong> que antes delegaba a Stack Overflow o la IA."
+            </p>
+            <div class="flex gap-1">
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">star</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones de navegación para el slider -->
+        <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-900/80 p-2 rounded-full shadow-md hover:bg-white dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500" aria-label="Anterior testimonio">
+          <span class="material-symbols-outlined text-gray-600 dark:text-gray-300" aria-hidden="true">chevron_left</span>
+        </button>
+        <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-900/80 p-2 rounded-full shadow-md hover:bg-white dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500" aria-label="Siguiente testimonio">
+          <span class="material-symbols-outlined text-gray-600 dark:text-gray-300" aria-hidden="true">chevron_right</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Instructor Section - Mejorado con más detalles y diseño profesional -->
+    <section class="p-6 animate-fade-in" aria-labelledby="instructor-heading">
+      <div class="bg-gradient-to-br from-primary-500/5 to-primary-500/10 dark:from-primary-500/10 dark:to-primary-500/20 rounded-2xl p-6 flex flex-col items-center gap-6 border border-primary-500/10">
+        <div class="relative group">
+          <img
+            alt="Marcus Thorne, instructor principal"
+            class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800 object-cover transition-transform duration-300 group-hover:scale-105"
+            data-alt="Foto profesional de Marcus Thorne, instructor de programación"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvsHUEuKP1y05e20RBdPGJ97Gu34s0PNHkLaADAKEzQTRrIXXfaegws5hj4mFiKFPMADy2XdxhZJ7dn1197ArNy75T7q_TLZFFVQgg__t70jWndYj73__b461eXFIanHyVlGtx9JgbEhV30Ma_94YUe1kTqI5FQoaQFsv6iZR1hAT651M5CNMKU2aTgNHe2-ZN6wM753J6NgHbVqEk6N1lVffGXRL9y3b4o7-YVShgh9mOHELvIoWe38WcgvqhVkFo2_o_3PSSGvY"
+            loading="lazy"
+          >
+          <div class="absolute bottom-0 right-0 bg-accent-500 p-1.5 rounded-full border-2 border-white dark:border-gray-800">
+            <span class="material-symbols-outlined text-white text-xs" aria-hidden="true">verified</span>
+          </div>
+          <!-- Efecto de hover con información adicional -->
+          <div class="absolute inset-0 bg-black/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="text-white text-xs font-bold px-2 py-1 bg-black/50 rounded-full">12+ años experiencia</span>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <h3 id="instructor-heading" class="text-gray-900 dark:text-white text-xl font-bold">Marcus Thorne</h3>
+          <p class="text-primary-500 font-medium text-sm mb-2 dark:text-primary-400">
+            Lead Instructor & Software Architect
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+            Ex-Senior Developer en <strong>Silicon Valley</strong> con más de 12 años construyendo sistemas distribuidos. Ha mentorizado a <strong>5,000+ ingenieros</strong> en pensamiento algorítmico.
+          </p>
+        </div>
+
+        <!-- Lista de logros mejorada -->
+        <ul class="w-full space-y-3 text-sm border-t border-gray-200 dark:border-gray-700 pt-6">
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-accent-500 text-lg shrink-0" aria-hidden="true">work</span>
+            <div>
+              <span class="font-medium">Ex-Senior Developer</span> en empresas como Google y Stripe
+            </div>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-accent-500 text-lg shrink-0" aria-hidden="true">dns</span>
+            <div>
+              <span class="font-medium">Especialista en Sistemas Distribuidos</span> y arquitectura escalable
+            </div>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-accent-500 text-lg shrink-0" aria-hidden="true">groups</span>
+            <div>
+              <span class="font-medium">Mentor de 5,000+ alumnos</span> con tasa de satisfacción del 98%
+            </div>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-accent-500 text-lg shrink-0" aria-hidden="true">auto_awesome</span>
+            <div>
+              <span class="font-medium">Creador de 3 frameworks</span> open-source usados por Fortune 500
+            </div>
+          </li>
+        </ul>
+
+        <!-- Botón para ver más sobre el instructor -->
+        <button class="w-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-primary-500 dark:text-primary-400 border border-primary-500/20 py-2 rounded-lg font-medium text-sm transition-colors flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary-500">
+          Ver trayectoria completa
+          <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- FAQ Section - Nueva sección añadida -->
+    <section class="py-12 px-6 bg-white dark:bg-gray-900/50" aria-labelledby="faq-heading">
+      <div class="max-w-3xl mx-auto">
+        <h2 id="faq-heading" class="text-gray-900 dark:text-white text-2xl font-black tracking-tight text-center mb-2 animate-fade-in">
+          Preguntas <span class="text-primary-500">frecuentes</span>
+        </h2>
+        <div class="w-12 h-1 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full mx-auto mb-8"></div>
+
+        <div class="space-y-4">
+          <!-- FAQ Item 1 -->
+          <div class="rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-card overflow-hidden">
+            <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary-500" aria-expanded="false" aria-controls="faq-1">
+              <span class="text-gray-900 dark:text-white font-medium">¿Necesito experiencia previa en programación?</span>
+              <span class="material-symbols-outlined text-gray-500 dark:text-gray-400 transition-transform duration-300" aria-hidden="true">expand_more</span>
+            </button>
+            <div id="faq-1" class="px-6 pb-6 hidden" role="region">
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                No es necesaria. El curso está diseñado para llevar a los estudiantes desde <strong>cero hasta nivel profesional</strong>. Comenzamos con los fundamentos de la lógica de programación antes de entrar en lenguajes específicos.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-card overflow-hidden">
+            <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary-500" aria-expanded="false" aria-controls="faq-2">
+              <span class="text-gray-900 dark:text-white font-medium">¿Cómo es diferente este curso de otros de programación?</span>
+              <span class="material-symbols-outlined text-gray-500 dark:text-gray-400 transition-transform duration-300" aria-hidden="true">expand_more</span>
+            </button>
+            <div id="faq-2" class="px-6 pb-6 hidden" role="region">
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                Nos enfocamos en <strong>pensamiento crítico y resolución de problemas</strong>, no solo en sintaxis. Mientras otros cursos te enseñan "qué" escribir, nosotros te enseñamos <strong>"cómo" pensar</strong> como ingeniero para crear soluciones que la IA no puede generar.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-card overflow-hidden">
+            <button class="w-full p-6 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary-500" aria-expanded="false" aria-controls="faq-3">
+              <span class="text-gray-900 dark:text-white font-medium">¿Qué incluye el acceso a la comunidad privada?</span>
+              <span class="material-symbols-outlined text-gray-500 dark:text-gray-400 transition-transform duration-300" aria-hidden="true">expand_more</span>
+            </button>
+            <div id="faq-3" class="px-6 pb-6 hidden" role="region">
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                Acceso de por vida a:
+                <ul class="mt-2 space-y-1 pl-4 list-disc list-inside">
+                  <li>Canal privado de Discord con mentores</li>
+                  <li>Sesiones semanales de Q&A en vivo</li>
+                  <li>Revisión de código por pares</li>
+                  <li>Oportunidades de networking con empresas tecnológicas</li>
+                  <li>Actualizaciones gratuitas del contenido</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer CTA - Mejorado con más información y diseño atractivo -->
+    <footer class="p-6 pb-12 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 animate-fade-in">
+      <div class="flex flex-col gap-6 items-center text-center max-w-md mx-auto">
+        <div class="flex flex-col gap-2">
+          <div class="inline-block px-3 py-1 text-primary-500 font-bold uppercase tracking-widest text-xs bg-primary-500/10 rounded-full">
+            ÚLTIMAS PLAZAS DISPONIBLES
+          </div>
+          <h2 class="text-xl font-black text-gray-900 dark:text-white">
+            ¿Listo para <span class="text-primary-500">transformar tu carrera</span>?
+          </h2>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Únete hoy y obtén acceso inmediato al curso + comunidad privada de por vida. <strong>Garantía de 30 días</strong> sin preguntas.
+          </p>
+        </div>
+
+        <!-- Precio y botón mejorados -->
+        <div class="flex items-end gap-4">
+          <div class="text-left">
+            <div class="text-gray-500 line-through text-lg">$499</div>
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-black text-gray-900 dark:text-white">$299</span>
+              <span class="text-gray-500 dark:text-gray-400">USD</span>
+            </div>
+            <div class="text-xs text-gray-500 dark:text-gray-400">o 3 cuotas de $99</div>
+          </div>
+          <button class="w-48 bg-accent-500 hover:bg-accent-600 text-white h-14 rounded-xl font-bold text-lg shadow-xl shadow-accent-500/20 transition-all hover:shadow-accent-500/30 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 relative overflow-hidden group">
+            <span class="relative z-10">Quiero inscribirme</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-accent-600 to-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+        </div>
+
+        <!-- Beneficios rápidos -->
+        <div class="grid grid-cols-2 gap-4 text-xs text-gray-600 dark:text-gray-400">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">check_circle</span>
+            Acceso inmediato
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">check_circle</span>
+            Certificado incluido
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">check_circle</span>
+            100% en español
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-accent-500 text-sm" aria-hidden="true">check_circle</span>
+            Soporte 24/7
+          </div>
+        </div>
+
+        <!-- Métodos de pago -->
+        <div class="flex gap-2 mt-2">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-6 opacity-60" loading="lazy">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard_logo.svg" alt="Mastercard" class="h-6 opacity-60" loading="lazy">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-6 opacity-60" loading="lazy">
+        </div>
+
+        <div class="flex gap-4 opacity-50 mt-4">
+          <span class="material-symbols-outlined" aria-hidden="true">language</span>
+          <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+          <span class="material-symbols-outlined" aria-hidden="true">group</span>
+        </div>
+
+        <p class="text-[10px] text-gray-400">
+          © 2026 Stop AI Programming School. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Safe area for mobile -->
+    <div class="h-6 bg-white dark:bg-background-dark"></div>
+
+    <!-- Script para funcionalidades interactivas -->
+    <script>
+      // Toggle de modo oscuro
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      });
+
+      // Comprobar preferencia de tema al cargar
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+
+      // Funcionalidad de FAQ
+      document.querySelectorAll('[aria-controls]').forEach(button => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.getAttribute('aria-controls'));
+          const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+          button.setAttribute('aria-expanded', !isExpanded);
+          target.classList.toggle('hidden');
+
+          // Rotar icono
+          const icon = button.querySelector('[aria-hidden="true"]');
+          if (icon) {
+            icon.textContent = isExpanded ? 'expand_more' : 'expand_less';
+          }
+        });
+      });
+
+      // Slider de testimonios (versión básica)
+      const slider = document.getElementById('testimonials-slider');
+      if (slider) {
+        const prevBtn = slider.parentElement.querySelector('[aria-label="Anterior testimonio"]');
+        const nextBtn = slider.parentElement.querySelector('[aria-label="Siguiente testimonio"]');
+
+        prevBtn?.addEventListener('click', () => {
+          slider.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        nextBtn?.addEventListener('click', () => {
+          slider.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+      }
+
+      // Animaciones al hacer scroll
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+        elements.forEach(el => {
+          const elPosition = el.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.2;
+
+          if (elPosition < screenPosition) {
+            el.classList.add('opacity-100');
+            el.classList.remove('opacity-0');
+          }
+        });
+      };
+
+      // Inicializar animaciones
+      document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
+        el.classList.add('opacity-0');
+      });
+
+      window.addEventListener('scroll', animateOnScroll);
+      window.addEventListener('load', () => {
+        animateOnScroll();
+        setTimeout(animateOnScroll, 300); // Para elementos que cargan después
+      });
+    </script>
+  </body>
+</html>
